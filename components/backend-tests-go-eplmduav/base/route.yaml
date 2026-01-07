@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: backend-tests-go-eplmduav
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: backend-tests-go-eplmduav 
+  name: backend-tests-go-eplmduav
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: backend-tests-go-eplmduav
+    weight: 100 
